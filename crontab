@@ -1,3 +1,6 @@
-* * * * * curl http://sample-nodejs:8080 >/proc/1/fd/1 2>/proc/1/fd/2
+# * * * * * curl http://sample-nodejs:8080 >/proc/1/fd/1 2>/proc/1/fd/2
+
+# https://laravel.com/docs/10.x/scheduling#running-the-scheduler
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 
 # An empty line is required at the end of this file for a valid cron file.
