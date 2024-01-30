@@ -14,7 +14,8 @@ RUN crontab hello-cron
 RUN chmod +x entrypoint.sh
 
 RUN pwd
-RUN ls -alF
+RUN ls .app_platform/
+RUN ls .app_platform_workspace/
 
 # Set the working directory for the Laravel app
 WORKDIR /workspace
