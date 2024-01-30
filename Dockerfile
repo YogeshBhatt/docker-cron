@@ -13,6 +13,20 @@ COPY entrypoint.sh /entrypoint.sh
 RUN crontab hello-cron
 RUN chmod +x entrypoint.sh
 
+RUN pwd
+RUN ls -alF
+
+# Set the working directory for the Laravel app
+WORKDIR /workspace
+RUN pwd
+
+# Copy the Laravel app into the container
+COPY . /workspace
+
+# Set proper permissions for the storage and bootstrap/cache directories
+RUN chown -R www-data:www-data /workspace/storage /workspace/bootstrap/cache \
+    && chmod -R 755 /workspace/storage /workspace/bootstrap/cache
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 # https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
